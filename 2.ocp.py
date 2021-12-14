@@ -8,20 +8,32 @@ class Animal:
         self.name = name
     
     def get_name(self) -> str:
-        pass
+        return self.__name
 
     def make_sound(self):
-        if self.name == 'lion':
-            print('roar')
-        elif self.name == 'mouse':
-            print('squeak')
-        else:
-            print('...')
+        self.make_sound()
+
+class Lion(Animal):
+    def __init__(self):
+        super().__init__(name)
+        self.som = 'roar'
+
+    def make_sound():
+        print(self.som)
+
+class Mouse(Animal):
+    def __init__(self):
+        super().__init__(name)
+        self.som = 'squek'
+
+    def make_sound():
+        print(self.som)
 
 animals = [
-    Animal('lion'),
-    Animal('mouse')
+    Lion('lion'),
+    Mouse('mouse')
 ]
+
 
 def animal_sound(animals: list):
     for animal in animals:
@@ -38,14 +50,17 @@ usando essa classe abaixo. Quando você decide dar 40% de desconto a clientes VI
 você decide mudar a classe da seguinte forma:
 """
 
-class Discount:
-    def __init__(self, customer, price):
-        self.customer = customer
+class Discount(Cliente):
+    def __init__(self,price):
+        super().__init__(customer, desconto)
         self.price = price
 
     def give_discount(self):
-            if self.customer == 'fav':
-                return self.price * 0.2
-            if self.customer == 'vip':
-                return self.price * 0.4
+            return self.price * self.desconto
+
+
+class Cliente:
+    def __init__(self, customer, desconto):
+        self.customer = customer
+        self.desconto = desconto
 
